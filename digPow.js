@@ -9,7 +9,7 @@
 // Psuedocode:
 // If both p and n are > 0,
 	// convert n to an array of numbers 0-9 per index.
-	// Calculate the 'bigboy number' using index raised to p
+	// Calculate the 'bigboy number' using loop of index raised to p
 	// loop through 'bigboy' number using while loop to find first divisor (if applicable) up to 'bigboy'
 	// if divisor is less than 'bigboy' (aka there is a divisor) return divisor
 		// else return -1
@@ -17,6 +17,30 @@
 
 function digPow(n, p){
 	if (n > 0 && p > 0) {
+
+		// Converts string of n into an array
+		let arrayOfNums = Array.from(String(n), Number)
+
+		// Find the 'bigboy' number
+		let bigBoy = 0
+		for (var i = 0; i < arrayOfNums.length; i++) {
+			bigBoy += bigBoy + (arrayOfNums[i] ** (p + i))
+		}
+
+		// Find the divisors of bigBoy if possible
+		let divisors = []
+		for (var j = 1; j < bigBoy; j++) {
+			if (bigBoy % j === 0) {
+				divisors.push(j)
+			}
+		}
+
+		// Return if/else
+		if (divisors.length > 0) {
+			return divisors[0]
+		} else {
+			return "-1"
+		}
 
 	} else {
 		return ('Error: Both inputs must be a positive value')
