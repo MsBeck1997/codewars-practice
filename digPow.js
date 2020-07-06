@@ -23,7 +23,7 @@ function digPow(n, p){
 
 		// Find the 'bigBoy' number
 		let bigBoy = 0
-		for (var i = 0; i < arrayOfNums.length; i++) {
+		for (var i = 0; i <= arrayOfNums.length; i++) {
 			bigBoy += bigBoy + (arrayOfNums[i] ** (p + i))
 		}
 
