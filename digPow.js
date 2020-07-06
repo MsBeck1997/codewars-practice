@@ -21,7 +21,7 @@ function digPow(n, p){
 		// Converts string of n into an array
 		let arrayOfNums = Array.from(String(n), Number)
 
-		// Find the 'bigboy' number
+		// Find the 'bigBoy' number
 		let bigBoy = 0
 		for (var i = 0; i < arrayOfNums.length; i++) {
 			bigBoy += bigBoy + (arrayOfNums[i] ** (p + i))
@@ -29,7 +29,7 @@ function digPow(n, p){
 
 		// Find the divisors of bigBoy if possible
 		let divisors = []
-		for (var j = 1; j < bigBoy; j++) {
+		for (var j = 2; j < bigBoy; j++) {
 			if (bigBoy % j === 0) {
 				divisors.push(j)
 			}
@@ -39,7 +39,7 @@ function digPow(n, p){
 		if (divisors.length > 0) {
 			return divisors[0]
 		} else {
-			return "-1"
+			return -1
 		}
 
 	} else {
